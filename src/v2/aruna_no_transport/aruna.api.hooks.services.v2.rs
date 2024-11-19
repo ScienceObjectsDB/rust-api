@@ -250,13 +250,13 @@ impl TriggerType {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            TriggerType::Unspecified => "TRIGGER_TYPE_UNSPECIFIED",
-            TriggerType::HookAdded => "TRIGGER_TYPE_HOOK_ADDED",
-            TriggerType::ResourceCreated => "TRIGGER_TYPE_RESOURCE_CREATED",
-            TriggerType::LabelAdded => "TRIGGER_TYPE_LABEL_ADDED",
-            TriggerType::StaticLabelAdded => "TRIGGER_TYPE_STATIC_LABEL_ADDED",
-            TriggerType::HookStatusChanged => "TRIGGER_TYPE_HOOK_STATUS_CHANGED",
-            TriggerType::ObjectFinished => "TRIGGER_TYPE_OBJECT_FINISHED",
+            Self::Unspecified => "TRIGGER_TYPE_UNSPECIFIED",
+            Self::HookAdded => "TRIGGER_TYPE_HOOK_ADDED",
+            Self::ResourceCreated => "TRIGGER_TYPE_RESOURCE_CREATED",
+            Self::LabelAdded => "TRIGGER_TYPE_LABEL_ADDED",
+            Self::StaticLabelAdded => "TRIGGER_TYPE_STATIC_LABEL_ADDED",
+            Self::HookStatusChanged => "TRIGGER_TYPE_HOOK_STATUS_CHANGED",
+            Self::ObjectFinished => "TRIGGER_TYPE_OBJECT_FINISHED",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -288,9 +288,9 @@ impl Method {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            Method::Unspecified => "METHOD_UNSPECIFIED",
-            Method::Put => "METHOD_PUT",
-            Method::Post => "METHOD_POST",
+            Self::Unspecified => "METHOD_UNSPECIFIED",
+            Self::Put => "METHOD_PUT",
+            Self::Post => "METHOD_POST",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -305,7 +305,13 @@ impl Method {
 }
 /// Generated client implementations.
 pub mod hooks_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    #![allow(
+        unused_variables,
+        dead_code,
+        missing_docs,
+        clippy::wildcard_imports,
+        clippy::let_unit_value,
+    )]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
     /// HooksService
@@ -399,8 +405,7 @@ pub mod hooks_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -434,8 +439,7 @@ pub mod hooks_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -469,8 +473,7 @@ pub mod hooks_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -504,8 +507,7 @@ pub mod hooks_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -539,8 +541,7 @@ pub mod hooks_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -575,8 +576,7 @@ pub mod hooks_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -598,7 +598,13 @@ pub mod hooks_service_client {
 }
 /// Generated server implementations.
 pub mod hooks_service_server {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    #![allow(
+        unused_variables,
+        dead_code,
+        missing_docs,
+        clippy::wildcard_imports,
+        clippy::let_unit_value,
+    )]
     use tonic::codegen::*;
     /// Generated trait containing gRPC methods that should be implemented for use with HooksServiceServer.
     #[async_trait]
@@ -1033,17 +1039,19 @@ pub mod hooks_service_server {
                 }
                 _ => {
                     Box::pin(async move {
-                        Ok(
-                            http::Response::builder()
-                                .status(200)
-                                .header("grpc-status", tonic::Code::Unimplemented as i32)
-                                .header(
-                                    http::header::CONTENT_TYPE,
-                                    tonic::metadata::GRPC_CONTENT_TYPE,
-                                )
-                                .body(empty_body())
-                                .unwrap(),
-                        )
+                        let mut response = http::Response::new(empty_body());
+                        let headers = response.headers_mut();
+                        headers
+                            .insert(
+                                tonic::Status::GRPC_STATUS,
+                                (tonic::Code::Unimplemented as i32).into(),
+                            );
+                        headers
+                            .insert(
+                                http::header::CONTENT_TYPE,
+                                tonic::metadata::GRPC_CONTENT_TYPE,
+                            );
+                        Ok(response)
                     })
                 }
             }

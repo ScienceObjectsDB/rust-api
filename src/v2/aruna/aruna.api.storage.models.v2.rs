@@ -542,11 +542,11 @@ impl DataClass {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            DataClass::Unspecified => "DATA_CLASS_UNSPECIFIED",
-            DataClass::Public => "DATA_CLASS_PUBLIC",
-            DataClass::Private => "DATA_CLASS_PRIVATE",
-            DataClass::Workspace => "DATA_CLASS_WORKSPACE",
-            DataClass::Confidential => "DATA_CLASS_CONFIDENTIAL",
+            Self::Unspecified => "DATA_CLASS_UNSPECIFIED",
+            Self::Public => "DATA_CLASS_PUBLIC",
+            Self::Private => "DATA_CLASS_PRIVATE",
+            Self::Workspace => "DATA_CLASS_WORKSPACE",
+            Self::Confidential => "DATA_CLASS_CONFIDENTIAL",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -577,9 +577,9 @@ impl EndpointVariant {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            EndpointVariant::Unspecified => "ENDPOINT_VARIANT_UNSPECIFIED",
-            EndpointVariant::Persistent => "ENDPOINT_VARIANT_PERSISTENT",
-            EndpointVariant::Volatile => "ENDPOINT_VARIANT_VOLATILE",
+            Self::Unspecified => "ENDPOINT_VARIANT_UNSPECIFIED",
+            Self::Persistent => "ENDPOINT_VARIANT_PERSISTENT",
+            Self::Volatile => "ENDPOINT_VARIANT_VOLATILE",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -608,9 +608,9 @@ impl EndpointHostVariant {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            EndpointHostVariant::Unspecified => "ENDPOINT_HOST_VARIANT_UNSPECIFIED",
-            EndpointHostVariant::Grpc => "ENDPOINT_HOST_VARIANT_GRPC",
-            EndpointHostVariant::S3 => "ENDPOINT_HOST_VARIANT_S3",
+            Self::Unspecified => "ENDPOINT_HOST_VARIANT_UNSPECIFIED",
+            Self::Grpc => "ENDPOINT_HOST_VARIANT_GRPC",
+            Self::S3 => "ENDPOINT_HOST_VARIANT_S3",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -642,12 +642,12 @@ impl PermissionLevel {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            PermissionLevel::Unspecified => "PERMISSION_LEVEL_UNSPECIFIED",
-            PermissionLevel::None => "PERMISSION_LEVEL_NONE",
-            PermissionLevel::Read => "PERMISSION_LEVEL_READ",
-            PermissionLevel::Append => "PERMISSION_LEVEL_APPEND",
-            PermissionLevel::Write => "PERMISSION_LEVEL_WRITE",
-            PermissionLevel::Admin => "PERMISSION_LEVEL_ADMIN",
+            Self::Unspecified => "PERMISSION_LEVEL_UNSPECIFIED",
+            Self::None => "PERMISSION_LEVEL_NONE",
+            Self::Read => "PERMISSION_LEVEL_READ",
+            Self::Append => "PERMISSION_LEVEL_APPEND",
+            Self::Write => "PERMISSION_LEVEL_WRITE",
+            Self::Admin => "PERMISSION_LEVEL_ADMIN",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -682,11 +682,11 @@ impl KeyValueVariant {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            KeyValueVariant::Unspecified => "KEY_VALUE_VARIANT_UNSPECIFIED",
-            KeyValueVariant::Label => "KEY_VALUE_VARIANT_LABEL",
-            KeyValueVariant::StaticLabel => "KEY_VALUE_VARIANT_STATIC_LABEL",
-            KeyValueVariant::Hook => "KEY_VALUE_VARIANT_HOOK",
-            KeyValueVariant::HookStatus => "KEY_VALUE_VARIANT_HOOK_STATUS",
+            Self::Unspecified => "KEY_VALUE_VARIANT_UNSPECIFIED",
+            Self::Label => "KEY_VALUE_VARIANT_LABEL",
+            Self::StaticLabel => "KEY_VALUE_VARIANT_STATIC_LABEL",
+            Self::Hook => "KEY_VALUE_VARIANT_HOOK",
+            Self::HookStatus => "KEY_VALUE_VARIANT_HOOK_STATUS",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -718,12 +718,10 @@ impl ExternalRelationVariant {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            ExternalRelationVariant::Unspecified => {
-                "EXTERNAL_RELATION_VARIANT_UNSPECIFIED"
-            }
-            ExternalRelationVariant::Url => "EXTERNAL_RELATION_VARIANT_URL",
-            ExternalRelationVariant::Identifier => "EXTERNAL_RELATION_VARIANT_IDENTIFIER",
-            ExternalRelationVariant::Custom => "EXTERNAL_RELATION_VARIANT_CUSTOM",
+            Self::Unspecified => "EXTERNAL_RELATION_VARIANT_UNSPECIFIED",
+            Self::Url => "EXTERNAL_RELATION_VARIANT_URL",
+            Self::Identifier => "EXTERNAL_RELATION_VARIANT_IDENTIFIER",
+            Self::Custom => "EXTERNAL_RELATION_VARIANT_CUSTOM",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -758,16 +756,14 @@ impl InternalRelationVariant {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            InternalRelationVariant::Unspecified => {
-                "INTERNAL_RELATION_VARIANT_UNSPECIFIED"
-            }
-            InternalRelationVariant::BelongsTo => "INTERNAL_RELATION_VARIANT_BELONGS_TO",
-            InternalRelationVariant::Origin => "INTERNAL_RELATION_VARIANT_ORIGIN",
-            InternalRelationVariant::Version => "INTERNAL_RELATION_VARIANT_VERSION",
-            InternalRelationVariant::Metadata => "INTERNAL_RELATION_VARIANT_METADATA",
-            InternalRelationVariant::Policy => "INTERNAL_RELATION_VARIANT_POLICY",
-            InternalRelationVariant::Deleted => "INTERNAL_RELATION_VARIANT_DELETED",
-            InternalRelationVariant::Custom => "INTERNAL_RELATION_VARIANT_CUSTOM",
+            Self::Unspecified => "INTERNAL_RELATION_VARIANT_UNSPECIFIED",
+            Self::BelongsTo => "INTERNAL_RELATION_VARIANT_BELONGS_TO",
+            Self::Origin => "INTERNAL_RELATION_VARIANT_ORIGIN",
+            Self::Version => "INTERNAL_RELATION_VARIANT_VERSION",
+            Self::Metadata => "INTERNAL_RELATION_VARIANT_METADATA",
+            Self::Policy => "INTERNAL_RELATION_VARIANT_POLICY",
+            Self::Deleted => "INTERNAL_RELATION_VARIANT_DELETED",
+            Self::Custom => "INTERNAL_RELATION_VARIANT_CUSTOM",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -801,9 +797,9 @@ impl RelationDirection {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            RelationDirection::Unspecified => "RELATION_DIRECTION_UNSPECIFIED",
-            RelationDirection::Inbound => "RELATION_DIRECTION_INBOUND",
-            RelationDirection::Outbound => "RELATION_DIRECTION_OUTBOUND",
+            Self::Unspecified => "RELATION_DIRECTION_UNSPECIFIED",
+            Self::Inbound => "RELATION_DIRECTION_INBOUND",
+            Self::Outbound => "RELATION_DIRECTION_OUTBOUND",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -836,12 +832,12 @@ impl ResourceAction {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            ResourceAction::Unspecified => "RESOURCE_ACTION_UNSPECIFIED",
-            ResourceAction::Create => "RESOURCE_ACTION_CREATE",
-            ResourceAction::Append => "RESOURCE_ACTION_APPEND",
-            ResourceAction::Update => "RESOURCE_ACTION_UPDATE",
-            ResourceAction::Read => "RESOURCE_ACTION_READ",
-            ResourceAction::Delete => "RESOURCE_ACTION_DELETE",
+            Self::Unspecified => "RESOURCE_ACTION_UNSPECIFIED",
+            Self::Create => "RESOURCE_ACTION_CREATE",
+            Self::Append => "RESOURCE_ACTION_APPEND",
+            Self::Update => "RESOURCE_ACTION_UPDATE",
+            Self::Read => "RESOURCE_ACTION_READ",
+            Self::Delete => "RESOURCE_ACTION_DELETE",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -884,13 +880,13 @@ impl Status {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            Status::Unspecified => "STATUS_UNSPECIFIED",
-            Status::Initializing => "STATUS_INITIALIZING",
-            Status::Validating => "STATUS_VALIDATING",
-            Status::Available => "STATUS_AVAILABLE",
-            Status::Unavailable => "STATUS_UNAVAILABLE",
-            Status::Error => "STATUS_ERROR",
-            Status::Deleted => "STATUS_DELETED",
+            Self::Unspecified => "STATUS_UNSPECIFIED",
+            Self::Initializing => "STATUS_INITIALIZING",
+            Self::Validating => "STATUS_VALIDATING",
+            Self::Available => "STATUS_AVAILABLE",
+            Self::Unavailable => "STATUS_UNAVAILABLE",
+            Self::Error => "STATUS_ERROR",
+            Self::Deleted => "STATUS_DELETED",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -926,12 +922,12 @@ impl ComponentStatus {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            ComponentStatus::Unspecified => "COMPONENT_STATUS_UNSPECIFIED",
-            ComponentStatus::Initializing => "COMPONENT_STATUS_INITIALIZING",
-            ComponentStatus::Available => "COMPONENT_STATUS_AVAILABLE",
-            ComponentStatus::Degraded => "COMPONENT_STATUS_DEGRADED",
-            ComponentStatus::Unavailable => "COMPONENT_STATUS_UNAVAILABLE",
-            ComponentStatus::Maintenance => "COMPONENT_STATUS_MAINTENANCE",
+            Self::Unspecified => "COMPONENT_STATUS_UNSPECIFIED",
+            Self::Initializing => "COMPONENT_STATUS_INITIALIZING",
+            Self::Available => "COMPONENT_STATUS_AVAILABLE",
+            Self::Degraded => "COMPONENT_STATUS_DEGRADED",
+            Self::Unavailable => "COMPONENT_STATUS_UNAVAILABLE",
+            Self::Maintenance => "COMPONENT_STATUS_MAINTENANCE",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -962,9 +958,9 @@ impl Hashalgorithm {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            Hashalgorithm::Unspecified => "HASHALGORITHM_UNSPECIFIED",
-            Hashalgorithm::Md5 => "HASHALGORITHM_MD5",
-            Hashalgorithm::Sha256 => "HASHALGORITHM_SHA256",
+            Self::Unspecified => "HASHALGORITHM_UNSPECIFIED",
+            Self::Md5 => "HASHALGORITHM_MD5",
+            Self::Sha256 => "HASHALGORITHM_SHA256",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -994,11 +990,11 @@ impl ResourceVariant {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            ResourceVariant::Unspecified => "RESOURCE_VARIANT_UNSPECIFIED",
-            ResourceVariant::Project => "RESOURCE_VARIANT_PROJECT",
-            ResourceVariant::Collection => "RESOURCE_VARIANT_COLLECTION",
-            ResourceVariant::Dataset => "RESOURCE_VARIANT_DATASET",
-            ResourceVariant::Object => "RESOURCE_VARIANT_OBJECT",
+            Self::Unspecified => "RESOURCE_VARIANT_UNSPECIFIED",
+            Self::Project => "RESOURCE_VARIANT_PROJECT",
+            Self::Collection => "RESOURCE_VARIANT_COLLECTION",
+            Self::Dataset => "RESOURCE_VARIANT_DATASET",
+            Self::Object => "RESOURCE_VARIANT_OBJECT",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -1030,11 +1026,11 @@ impl ReplicationStatus {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            ReplicationStatus::Unspecified => "REPLICATION_STATUS_UNSPECIFIED",
-            ReplicationStatus::Waiting => "REPLICATION_STATUS_WAITING",
-            ReplicationStatus::Running => "REPLICATION_STATUS_RUNNING",
-            ReplicationStatus::Finished => "REPLICATION_STATUS_FINISHED",
-            ReplicationStatus::Error => "REPLICATION_STATUS_ERROR",
+            Self::Unspecified => "REPLICATION_STATUS_UNSPECIFIED",
+            Self::Waiting => "REPLICATION_STATUS_WAITING",
+            Self::Running => "REPLICATION_STATUS_RUNNING",
+            Self::Finished => "REPLICATION_STATUS_FINISHED",
+            Self::Error => "REPLICATION_STATUS_ERROR",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.

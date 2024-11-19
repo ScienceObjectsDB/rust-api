@@ -33,7 +33,13 @@ pub struct DeleteBundleRequest {
 pub struct DeleteBundleResponse {}
 /// Generated client implementations.
 pub mod bundler_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    #![allow(
+        unused_variables,
+        dead_code,
+        missing_docs,
+        clippy::wildcard_imports,
+        clippy::let_unit_value,
+    )]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
     /// BundlerService
@@ -126,8 +132,7 @@ pub mod bundler_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -161,8 +166,7 @@ pub mod bundler_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -184,7 +188,13 @@ pub mod bundler_service_client {
 }
 /// Generated server implementations.
 pub mod bundler_service_server {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    #![allow(
+        unused_variables,
+        dead_code,
+        missing_docs,
+        clippy::wildcard_imports,
+        clippy::let_unit_value,
+    )]
     use tonic::codegen::*;
     /// Generated trait containing gRPC methods that should be implemented for use with BundlerServiceServer.
     #[async_trait]
@@ -387,17 +397,19 @@ pub mod bundler_service_server {
                 }
                 _ => {
                     Box::pin(async move {
-                        Ok(
-                            http::Response::builder()
-                                .status(200)
-                                .header("grpc-status", tonic::Code::Unimplemented as i32)
-                                .header(
-                                    http::header::CONTENT_TYPE,
-                                    tonic::metadata::GRPC_CONTENT_TYPE,
-                                )
-                                .body(empty_body())
-                                .unwrap(),
-                        )
+                        let mut response = http::Response::new(empty_body());
+                        let headers = response.headers_mut();
+                        headers
+                            .insert(
+                                tonic::Status::GRPC_STATUS,
+                                (tonic::Code::Unimplemented as i32).into(),
+                            );
+                        headers
+                            .insert(
+                                http::header::CONTENT_TYPE,
+                                tonic::metadata::GRPC_CONTENT_TYPE,
+                            );
+                        Ok(response)
                     })
                 }
             }
@@ -926,11 +938,11 @@ impl ReplicationStatus {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            ReplicationStatus::Unspecified => "REPLICATION_STATUS_UNSPECIFIED",
-            ReplicationStatus::Pending => "REPLICATION_STATUS_PENDING",
-            ReplicationStatus::Running => "REPLICATION_STATUS_RUNNING",
-            ReplicationStatus::Finished => "REPLICATION_STATUS_FINISHED",
-            ReplicationStatus::Error => "REPLICATION_STATUS_ERROR",
+            Self::Unspecified => "REPLICATION_STATUS_UNSPECIFIED",
+            Self::Pending => "REPLICATION_STATUS_PENDING",
+            Self::Running => "REPLICATION_STATUS_RUNNING",
+            Self::Finished => "REPLICATION_STATUS_FINISHED",
+            Self::Error => "REPLICATION_STATUS_ERROR",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -947,7 +959,13 @@ impl ReplicationStatus {
 }
 /// Generated client implementations.
 pub mod dataproxy_replication_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    #![allow(
+        unused_variables,
+        dead_code,
+        missing_docs,
+        clippy::wildcard_imports,
+        clippy::let_unit_value,
+    )]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
     /// DataproxyService
@@ -1044,8 +1062,7 @@ pub mod dataproxy_replication_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1079,8 +1096,7 @@ pub mod dataproxy_replication_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1102,7 +1118,13 @@ pub mod dataproxy_replication_service_client {
 }
 /// Generated client implementations.
 pub mod dataproxy_backend_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    #![allow(
+        unused_variables,
+        dead_code,
+        missing_docs,
+        clippy::wildcard_imports,
+        clippy::let_unit_value,
+    )]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
     #[derive(Debug, Clone)]
@@ -1187,8 +1209,7 @@ pub mod dataproxy_backend_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1217,8 +1238,7 @@ pub mod dataproxy_backend_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1247,8 +1267,7 @@ pub mod dataproxy_backend_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1277,8 +1296,7 @@ pub mod dataproxy_backend_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1307,8 +1325,7 @@ pub mod dataproxy_backend_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1337,8 +1354,7 @@ pub mod dataproxy_backend_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1367,8 +1383,7 @@ pub mod dataproxy_backend_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1397,8 +1412,7 @@ pub mod dataproxy_backend_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1427,8 +1441,7 @@ pub mod dataproxy_backend_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1457,8 +1470,7 @@ pub mod dataproxy_backend_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1480,7 +1492,13 @@ pub mod dataproxy_backend_service_client {
 }
 /// Generated client implementations.
 pub mod dataproxy_user_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    #![allow(
+        unused_variables,
+        dead_code,
+        missing_docs,
+        clippy::wildcard_imports,
+        clippy::let_unit_value,
+    )]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
     #[derive(Debug, Clone)]
@@ -1569,8 +1587,7 @@ pub mod dataproxy_user_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1605,8 +1622,7 @@ pub mod dataproxy_user_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1641,8 +1657,7 @@ pub mod dataproxy_user_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1676,8 +1691,7 @@ pub mod dataproxy_user_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1711,8 +1725,7 @@ pub mod dataproxy_user_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1746,8 +1759,7 @@ pub mod dataproxy_user_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1769,7 +1781,13 @@ pub mod dataproxy_user_service_client {
 }
 /// Generated client implementations.
 pub mod dataproxy_ingestion_service_client {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    #![allow(
+        unused_variables,
+        dead_code,
+        missing_docs,
+        clippy::wildcard_imports,
+        clippy::let_unit_value,
+    )]
     use tonic::codegen::*;
     use tonic::codegen::http::Uri;
     #[derive(Debug, Clone)]
@@ -1859,8 +1877,7 @@ pub mod dataproxy_ingestion_service_client {
                 .ready()
                 .await
                 .map_err(|e| {
-                    tonic::Status::new(
-                        tonic::Code::Unknown,
+                    tonic::Status::unknown(
                         format!("Service was not ready: {}", e.into()),
                     )
                 })?;
@@ -1882,7 +1899,13 @@ pub mod dataproxy_ingestion_service_client {
 }
 /// Generated server implementations.
 pub mod dataproxy_replication_service_server {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    #![allow(
+        unused_variables,
+        dead_code,
+        missing_docs,
+        clippy::wildcard_imports,
+        clippy::let_unit_value,
+    )]
     use tonic::codegen::*;
     /// Generated trait containing gRPC methods that should be implemented for use with DataproxyReplicationServiceServer.
     #[async_trait]
@@ -2107,17 +2130,19 @@ pub mod dataproxy_replication_service_server {
                 }
                 _ => {
                     Box::pin(async move {
-                        Ok(
-                            http::Response::builder()
-                                .status(200)
-                                .header("grpc-status", tonic::Code::Unimplemented as i32)
-                                .header(
-                                    http::header::CONTENT_TYPE,
-                                    tonic::metadata::GRPC_CONTENT_TYPE,
-                                )
-                                .body(empty_body())
-                                .unwrap(),
-                        )
+                        let mut response = http::Response::new(empty_body());
+                        let headers = response.headers_mut();
+                        headers
+                            .insert(
+                                tonic::Status::GRPC_STATUS,
+                                (tonic::Code::Unimplemented as i32).into(),
+                            );
+                        headers
+                            .insert(
+                                http::header::CONTENT_TYPE,
+                                tonic::metadata::GRPC_CONTENT_TYPE,
+                            );
+                        Ok(response)
                     })
                 }
             }
@@ -2143,7 +2168,13 @@ pub mod dataproxy_replication_service_server {
 }
 /// Generated server implementations.
 pub mod dataproxy_backend_service_server {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    #![allow(
+        unused_variables,
+        dead_code,
+        missing_docs,
+        clippy::wildcard_imports,
+        clippy::let_unit_value,
+    )]
     use tonic::codegen::*;
     /// Generated trait containing gRPC methods that should be implemented for use with DataproxyBackendServiceServer.
     #[async_trait]
@@ -2790,17 +2821,19 @@ pub mod dataproxy_backend_service_server {
                 }
                 _ => {
                     Box::pin(async move {
-                        Ok(
-                            http::Response::builder()
-                                .status(200)
-                                .header("grpc-status", tonic::Code::Unimplemented as i32)
-                                .header(
-                                    http::header::CONTENT_TYPE,
-                                    tonic::metadata::GRPC_CONTENT_TYPE,
-                                )
-                                .body(empty_body())
-                                .unwrap(),
-                        )
+                        let mut response = http::Response::new(empty_body());
+                        let headers = response.headers_mut();
+                        headers
+                            .insert(
+                                tonic::Status::GRPC_STATUS,
+                                (tonic::Code::Unimplemented as i32).into(),
+                            );
+                        headers
+                            .insert(
+                                http::header::CONTENT_TYPE,
+                                tonic::metadata::GRPC_CONTENT_TYPE,
+                            );
+                        Ok(response)
                     })
                 }
             }
@@ -2826,7 +2859,13 @@ pub mod dataproxy_backend_service_server {
 }
 /// Generated server implementations.
 pub mod dataproxy_user_service_server {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    #![allow(
+        unused_variables,
+        dead_code,
+        missing_docs,
+        clippy::wildcard_imports,
+        clippy::let_unit_value,
+    )]
     use tonic::codegen::*;
     /// Generated trait containing gRPC methods that should be implemented for use with DataproxyUserServiceServer.
     #[async_trait]
@@ -3279,17 +3318,19 @@ pub mod dataproxy_user_service_server {
                 }
                 _ => {
                     Box::pin(async move {
-                        Ok(
-                            http::Response::builder()
-                                .status(200)
-                                .header("grpc-status", tonic::Code::Unimplemented as i32)
-                                .header(
-                                    http::header::CONTENT_TYPE,
-                                    tonic::metadata::GRPC_CONTENT_TYPE,
-                                )
-                                .body(empty_body())
-                                .unwrap(),
-                        )
+                        let mut response = http::Response::new(empty_body());
+                        let headers = response.headers_mut();
+                        headers
+                            .insert(
+                                tonic::Status::GRPC_STATUS,
+                                (tonic::Code::Unimplemented as i32).into(),
+                            );
+                        headers
+                            .insert(
+                                http::header::CONTENT_TYPE,
+                                tonic::metadata::GRPC_CONTENT_TYPE,
+                            );
+                        Ok(response)
                     })
                 }
             }
@@ -3315,7 +3356,13 @@ pub mod dataproxy_user_service_server {
 }
 /// Generated server implementations.
 pub mod dataproxy_ingestion_service_server {
-    #![allow(unused_variables, dead_code, missing_docs, clippy::let_unit_value)]
+    #![allow(
+        unused_variables,
+        dead_code,
+        missing_docs,
+        clippy::wildcard_imports,
+        clippy::let_unit_value,
+    )]
     use tonic::codegen::*;
     /// Generated trait containing gRPC methods that should be implemented for use with DataproxyIngestionServiceServer.
     #[async_trait]
@@ -3463,17 +3510,19 @@ pub mod dataproxy_ingestion_service_server {
                 }
                 _ => {
                     Box::pin(async move {
-                        Ok(
-                            http::Response::builder()
-                                .status(200)
-                                .header("grpc-status", tonic::Code::Unimplemented as i32)
-                                .header(
-                                    http::header::CONTENT_TYPE,
-                                    tonic::metadata::GRPC_CONTENT_TYPE,
-                                )
-                                .body(empty_body())
-                                .unwrap(),
-                        )
+                        let mut response = http::Response::new(empty_body());
+                        let headers = response.headers_mut();
+                        headers
+                            .insert(
+                                tonic::Status::GRPC_STATUS,
+                                (tonic::Code::Unimplemented as i32).into(),
+                            );
+                        headers
+                            .insert(
+                                http::header::CONTENT_TYPE,
+                                tonic::metadata::GRPC_CONTENT_TYPE,
+                            );
+                        Ok(response)
                     })
                 }
             }

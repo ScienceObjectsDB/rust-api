@@ -583,14 +583,14 @@ pub mod json_schema {
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
-                JsonSchemaSimpleTypes::Unknown => "UNKNOWN",
-                JsonSchemaSimpleTypes::Array => "ARRAY",
-                JsonSchemaSimpleTypes::Boolean => "BOOLEAN",
-                JsonSchemaSimpleTypes::Integer => "INTEGER",
-                JsonSchemaSimpleTypes::Null => "NULL",
-                JsonSchemaSimpleTypes::Number => "NUMBER",
-                JsonSchemaSimpleTypes::Object => "OBJECT",
-                JsonSchemaSimpleTypes::String => "STRING",
+                Self::Unknown => "UNKNOWN",
+                Self::Array => "ARRAY",
+                Self::Boolean => "BOOLEAN",
+                Self::Integer => "INTEGER",
+                Self::Null => "NULL",
+                Self::Number => "NUMBER",
+                Self::Object => "OBJECT",
+                Self::String => "STRING",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -729,10 +729,10 @@ pub mod security_scheme {
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
-                Type::Invalid => "TYPE_INVALID",
-                Type::Basic => "TYPE_BASIC",
-                Type::ApiKey => "TYPE_API_KEY",
-                Type::Oauth2 => "TYPE_OAUTH2",
+                Self::Invalid => "TYPE_INVALID",
+                Self::Basic => "TYPE_BASIC",
+                Self::ApiKey => "TYPE_API_KEY",
+                Self::Oauth2 => "TYPE_OAUTH2",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -772,9 +772,9 @@ pub mod security_scheme {
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
-                In::Invalid => "IN_INVALID",
-                In::Query => "IN_QUERY",
-                In::Header => "IN_HEADER",
+                Self::Invalid => "IN_INVALID",
+                Self::Query => "IN_QUERY",
+                Self::Header => "IN_HEADER",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -816,11 +816,11 @@ pub mod security_scheme {
         /// (if the ProtoBuf definition does not change) and safe for programmatic use.
         pub fn as_str_name(&self) -> &'static str {
             match self {
-                Flow::Invalid => "FLOW_INVALID",
-                Flow::Implicit => "FLOW_IMPLICIT",
-                Flow::Password => "FLOW_PASSWORD",
-                Flow::Application => "FLOW_APPLICATION",
-                Flow::AccessCode => "FLOW_ACCESS_CODE",
+                Self::Invalid => "FLOW_INVALID",
+                Self::Implicit => "FLOW_IMPLICIT",
+                Self::Password => "FLOW_PASSWORD",
+                Self::Application => "FLOW_APPLICATION",
+                Self::AccessCode => "FLOW_ACCESS_CODE",
             }
         }
         /// Creates an enum from field names used in the ProtoBuf definition.
@@ -909,11 +909,11 @@ impl Scheme {
     /// (if the ProtoBuf definition does not change) and safe for programmatic use.
     pub fn as_str_name(&self) -> &'static str {
         match self {
-            Scheme::Unknown => "UNKNOWN",
-            Scheme::Http => "HTTP",
-            Scheme::Https => "HTTPS",
-            Scheme::Ws => "WS",
-            Scheme::Wss => "WSS",
+            Self::Unknown => "UNKNOWN",
+            Self::Http => "HTTP",
+            Self::Https => "HTTPS",
+            Self::Ws => "WS",
+            Self::Wss => "WSS",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
